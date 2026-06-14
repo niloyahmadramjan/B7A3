@@ -50,3 +50,12 @@ insert into Matches(match_id, fixture, tournament_category, base_ticket_price, m
 (103, 'Bayern Munich vs PSG',      'Champions League', 130, 'Available'),
 (104, 'AC Milan vs Inter Milan',   'Serie A',           90, 'Sold Out'),
 (105, 'Juventus vs Roma',          'Serie A',           80, 'Available');
+
+
+
+insert into Bookings (booking_id, user_id, match_id, seat_number, payment_status, total_cost) values
+(501, 1, 101, 'A-12', 'Confirmed', 150),
+(502, 1, 102, 'B-04', 'Confirmed', 120),
+(503, 2, 101, 'A-13', 'Confirmed', 150),
+(504, 2, 101,  NULL,   NULL,       150),
+(505, 3, 102, 'C-20', 'Pending',   120);
