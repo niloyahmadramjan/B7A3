@@ -61,7 +61,8 @@ insert into Bookings (booking_id, user_id, match_id, seat_number, payment_status
 (505, 3, 102, 'C-20', 'Pending',   120);
 
 
-
+-------------------------------------------------
+--------------------------------------------------
 -- Query 1: Retrieve all upcoming football matches belonging to the 'Champions League' where the match status is 'Available'.
 
 select match_id, fixture,base_ticket_price
@@ -73,3 +74,8 @@ select match_id, fixture,base_ticket_price
 select user_id, full_name, email from Users 
 where full_name ilike 'Tanvir%'
 or full_name ilike '%Haque%'
+
+
+-- Query 3: Retrieve all booking records where the payment status is missing (NULL), replacing the empty result with 'Action Required'.
+select booking_id, user_id, match_id, coalesce(payment_status, 'Action Required') as systematic_status
+from Bookings where payment_status is null
