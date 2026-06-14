@@ -68,3 +68,8 @@ select match_id, fixture,base_ticket_price
   from Matches
   where tournament_category = 'Champions League' 
   and match_status = 'Available'
+
+-- Query 2: Search for all users whose full names start with 'Tanvir' or contain the phrase 'Haque' (case-insensitive).
+select user_id, full_name, email from Users 
+where full_name ilike 'Tanvir%'
+or full_name ilike '%Haque%'
