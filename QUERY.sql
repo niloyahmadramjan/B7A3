@@ -21,3 +21,14 @@ create table Matches(
   match_status varchar(20) not null
   check(match_status IN ('Available', 'Selling Fast', 'Sold Out', 'Postponed'))
 )
+
+-- create Booking table 
+create table Bookings(
+  booking_id serial primary key, 
+  user_id int not null references Users(user_id) on delete cascade,
+  match_id int not null references Matches(match_id) on delete cascade,
+  seat_number varchar(20) null,
+  payment_status varchar(20) null,
+  check (payment_status IN ('Pending', 'Confirmed', 'Cancelled', 'Refunded')),
+  total_cost numeric(10,2) not null
+);
