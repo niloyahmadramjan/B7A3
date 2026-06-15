@@ -103,4 +103,14 @@ ORDER BY
 --  who have NEVER bought a ticket are still listed.
 select u.user_id, u.full_name, b.booking_id from Users u
 left join Bookings b on u.user_id = b.user_id 
-order by u.user_id , b.booking_id
+order by u.user_id , b.booking_id;
+
+
+--  Query 6
+--  Find all ticket bookings where the total cost is STRICTLY
+--  HIGHER than the average cost of ALL ticket bookings.
+
+
+select booking_id, match_id, total_cost from Bookings 
+where total_cost > (select avg(total_cost) from Bookings)
+order by booking_id;
