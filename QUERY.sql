@@ -114,3 +114,13 @@ order by u.user_id , b.booking_id;
 select booking_id, match_id, total_cost from Bookings 
 where total_cost > (select avg(total_cost) from Bookings)
 order by booking_id;
+
+
+--  Query 7
+--  Retrieve the TOP 2 most expensive matches sorted by base
+--  ticket price, SKIPPING the absolute highest premium match.
+
+select match_id, fixture, base_ticket_price from Matches 
+order by base_ticket_price desc 
+limit 2 
+offset 1;
