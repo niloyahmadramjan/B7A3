@@ -96,3 +96,11 @@ FROM
   INNER JOIN Matches m ON b.match_id = m.match_id
 ORDER BY
   b.booking_id;
+
+
+--  Query 5
+--  Display ALL users and their booking IDs, ensuring fans
+--  who have NEVER bought a ticket are still listed.
+select u.user_id, u.full_name, b.booking_id from Users u
+left join Bookings b on u.user_id = b.user_id 
+order by u.user_id , b.booking_id
